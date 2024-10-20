@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Check</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f9fa; /* Default background color */
+        }
+
+        /* Style for the birthday input card */
+        #birthdayCard {
+            z-index: 2; /* Ensure it is above the happy screen */
+        }
+
+        /* Transition for card hover effect */
+        .transition-card {
+            transition: background-color 0.3s ease;
+        }
+
+        .transition-card:hover {
+            background-color: #AFEEEE;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Birthday input card -->
+<div id="birthdayCard" class="card transition-card text-center p-4" style="width: 24rem;">
+    <div class="card-body">
+        <h5 class="card-title">Hãy nhập ngày sinh nhật</h5>
+        <div class="mb-3">
+            <label for="dayInput" class="form-label">Ngày</label>
+            <input type="number" id="dayInput" class="form-control" min="1" max="31" placeholder="Nhập ngày" required>
+        </div>
+        <div class="mb-3">
+            <label for="monthInput" class="form-label">Tháng</label>
+            <input type="number" id="monthInput" class="form-control" min="1" max="12" placeholder="Nhập tháng" required>
+        </div>
+        <button class="btn btn-primary" id="submitBtn">Gửi</button>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom JS -->
+<script>
+    document.getElementById('submitBtn').addEventListener('click', function() {
+        const dayInput = parseInt(document.getElementById('dayInput').value);
+        const monthInput = parseInt(document.getElementById('monthInput').value);
+
+        // Assuming Women's Day is on September 1st
+        if (dayInput === 1 && monthInput === 9) {
+            // Redirect to the happy screen
+            window.location.href = 'happy-screen.html'; // Navigate to happy-screen.html
+        } else {
+            alert('Bạn không phải là em Bò');
+        }
+    });
+</script>
+
+</body>
+</html>
